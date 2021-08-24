@@ -6,7 +6,7 @@ body {
 }
 
 h1{
-     color="pink";
+     text-color="pink";
 }
 
 #content {
@@ -22,4 +22,5 @@ header {
 footer {
 	font-style: italic;
 	font-size: 90%;
+	
 }
