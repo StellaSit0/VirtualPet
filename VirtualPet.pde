@@ -18,15 +18,20 @@ void draw(){
   //left eye
   fill(0,0,0);
   ellipse(190,150,50,50);
+  fill(225,225,225);
+  ellipse(195,150,10,10);
   //right eye
   fill(0,0,0);
-  ellipse(300,150,50,50);
+  ellipse(310,150,50,50);
+  fill(225,225,225);
+  ellipse(305,150,10,10);
+  //nose
+  fill(0,0,0);
+  ellipse(250,200,50,20);
   //left arm
   fill(0,0,0);
-  ellipse(125,375,100,200);
-  //rotate(200);
+  ellipse(130,390,100,200);
   //right arm
-  
-  triangle(250,200,5,5);
-  
+  fill(0,0,0);
+  ellipse(370,390,100,200);
 }
