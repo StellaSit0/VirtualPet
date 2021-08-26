@@ -27,4 +27,6 @@ void draw(){
   //rotate(200);
   //right arm
   
+  triangle(250,200,5,5);
+  
 }
