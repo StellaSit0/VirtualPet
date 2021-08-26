@@ -17,14 +17,14 @@ void draw(){
   ellipse(250,200,250,250);
   //left eye
   fill(0,0,0);
-  ellipse(190,150,50,50);
+  ellipse(190,150,50,60);
   fill(225,225,225);
-  ellipse(195,150,10,10);
+  ellipse(195,145,10,10);
   //right eye
   fill(0,0,0);
-  ellipse(310,150,50,50);
+  ellipse(310,150,50,60);
   fill(225,225,225);
-  ellipse(305,150,10,10);
+  ellipse(305,145,10,10);
   //nose
   fill(0,0,0);
   ellipse(250,200,50,20);
