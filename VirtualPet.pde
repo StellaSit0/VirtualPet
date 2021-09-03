@@ -2,6 +2,8 @@ import cc.arduino.*;
 import org.firmata.*;
 import processing.serial.*;
 Arduino arduino;
+int leftButton=0;
+int rightButton=0;
 
 public void setup() {
   size(500, 500);
@@ -10,6 +12,8 @@ public void setup() {
 }
 void draw(){
   int y = arduino.analogRead(5);
+  leftButton=arduino.analogRead(1);
+  rightButton=arduino.analogRead(6);
   System.out.println(y);
   //left ear
   background(225);
@@ -48,15 +52,25 @@ void draw(){
   //smile
   noFill();
   arc(250, 2*y, 100, 60, 0, HALF_PI);
-  //arc(250, 250, 100, 60, HALF_PI, PI);
-  //arc(250, 250, 70, 70, PI, PI+QUARTER_PI);
-  //arc(250, 250, 100, 80, PI+QUARTER_PI, TWO_PI);
-  /*
-  if(y>150){
-    background(52, 235, 70);
+
+  if(leftButton<= 500){
+    fill(255,0,0);
+  } else {
+    fill(0,255,0);
   }
-  if(y<35){
-    background(52, 235, 70);
+  
+  if(rightButton>=500){
+    fill(0,0,255);
   }
-  */
+ 
+  if(rightButton>=500 && leftButton>=500){
+    fill(0,255,255);
+  }
+  
+  ellipse(50,50,50,50);
+  rotate(y*2);
+  
+  for(int i = 0; i < 16; i++)
+    System.out.print(i+" "+arduino.analogRead(i) + "\t");
+    System.out.println();
 }
