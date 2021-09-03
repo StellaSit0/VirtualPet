@@ -45,6 +45,9 @@ void draw(){
   fill(0,0,0);
   //line(130,500,400,200);
   ellipse(130,390,100,200);
+  if(rightButton>=500){
+    ellipse(130,390,200,300);
+  }
   //right arm
   fill(0,0,0);
   //line(370,390,100,200);
@@ -52,6 +55,9 @@ void draw(){
   //smile
   noFill();
   arc(250, 2*y, 100, 60, 0, HALF_PI);
+  //eyebrows
+  line(250,125,200,100);
+  line(300,150,250,100);
 
   if(leftButton<= 500){
     fill(255,0,0);
@@ -68,7 +74,6 @@ void draw(){
   }
   
   ellipse(50,50,50,50);
-  rotate(y*2);
   
   for(int i = 0; i < 16; i++)
     System.out.print(i+" "+arduino.analogRead(i) + "\t");
