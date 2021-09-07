@@ -70,7 +70,7 @@ void draw(){
   } else{
     //angleMode(DEGREES);
     pushMatrix();
-     translate(width/4.25, height/3);
+     translate(width-120, height-200);
      rotate(radians(r));
      ellipse(0,100,100,200);
     popMatrix();
