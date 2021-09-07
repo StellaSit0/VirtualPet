@@ -4,8 +4,7 @@ import processing.serial.*;
 Arduino arduino;
 int leftButton=0;
 int rightButton=0;
-float ang = 3.5;
-float angle = 0;
+float ang = 4;
 float r;
 float ex,ey;
 
@@ -21,23 +20,20 @@ void draw(){
   leftButton=arduino.analogRead(1);
   rightButton=arduino.analogRead(6);
   System.out.println(y);
-  //left ear
-  
   background(225);
-  fill(255,0,0);
-  push();
-  translate(width/2,height+50);
-  rotate(ang);
-  ang+=0.005;
-  if(ang>5.5) ang = 4.0;
-  println(ang);
-   //ellipse(130,390,100,200);
-  ellipse(height,0,75,75);
-  pop();
-  
+  fill(255,164,46);
+  pushMatrix();
+    translate(width/4,height+60);
+    rotate(ang);
+    ang+=0.005;
+    if(ang>5.5) ang = 2.0;
+    println(ang);
+    ellipse(height,0,75,75);
+  popMatrix();
+  //left ear
   fill(0,0,0); 
   ellipse(160,110,100,100);
-  // right ear
+  //right ear
   fill(0,0,0);
   ellipse(330,110,100,100);
   //body
@@ -60,8 +56,6 @@ void draw(){
   fill(0,0,0);
   ellipse(250,200,50,20);
   //left arm
-  //fill(0,0,0);
-  //ellipse(130,390,100,200);
   if(rightButton<=500){
     fill(0,0,0);
     ellipse(130,390,100,200);
@@ -76,17 +70,12 @@ void draw(){
   } else{
     //angleMode(DEGREES);
     pushMatrix();
-      rotate(radians(-r*3));
-      translate(ex,ey);
-      ellipse(130,390,100,200);
-      popMatrix();
-    angle = angle + 5;
+     translate(width/4.25, height/3);
+     rotate(radians(r));
+     ellipse(0,100,100,200);
+    popMatrix();
+    r+=1;
   }
-  
-  //right arm
-  //fill(0,0,0);
-  //ellipse(370,390,100,200);
-  //smile
   noFill();
   arc(250, 2*y, 100, 60, 0, HALF_PI);
   //mean eyebrows
@@ -101,21 +90,12 @@ void draw(){
     noFill();
     arc(330, 140, 190, 60, PI+1, PI+HALF_PI);
   }
-  if(leftButton<= 500){
-    fill(0,0,255);
-  } else {
-    fill(0,255,0);
-  }
-  
-  if(rightButton>=500){
-    fill(255,0,0);
-  }
- 
-  if(rightButton>=500 && leftButton>=500){
-    fill(0,255,255);
-  }
-  
-  ellipse(50,50,50,50);
+  //left foot
+  fill(0);
+  ellipse(190,610,100,150);
+  //right foot
+  fill(0);
+  ellipse(310,610,100,150);
   
   for(int i = 0; i < 16; i++)
     System.out.print(i+" "+arduino.analogRead(i) + "\t");
